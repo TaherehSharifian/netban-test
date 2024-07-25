@@ -14,5 +14,5 @@ This project demonstrates:
 ## Project showcase
 
 The following screenshot and video illustrate the final output of the code within this repository.
+[download the video](http://localhost:3000/final_result.mp4)
 ![screenshot](final_result.jpeg)
-[Watch the video](final_result.mp4)

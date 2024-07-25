@@ -53,60 +53,56 @@ function AssetsList({ data }) {
   const headers = preparedData.length > 0 ? Object.keys(preparedData[0]) : [];
 
   return (
-    <div className="flex flex-col p-7 bg-card-bg rounded-xl">
-      <h1 className="mb-5">Assets</h1>
-
-      <div className="overflow-x-auto">
-        <table
-          className="min-w-full border-separate"
-          style={{ borderSpacing: "0" }}
-        >
-          <thead className=" text-white">
-            <tr>
+    <div className="overflow-x-auto">
+      <table
+        className="min-w-full border-separate"
+        style={{ borderSpacing: "0" }}
+      >
+        <thead className=" text-white">
+          <tr>
+            <td colSpan={headers.length}>
+              <div
+                className="rounded-md overflow-hidden bg-[#3d4a5c]"
+                style={{ marginBottom: "16px" }}
+              >
+                <div className="flex flex-row">
+                  {headers.map((header) => (
+                    <div
+                      key={header}
+                      className="flex-1 px-5 py-2 text-left font-extraligh"
+                    >
+                      {header.replace(/_/g, " ")}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          {preparedData.map((row, index) => (
+            <tr key={index}>
               <td colSpan={headers.length}>
                 <div
-                  className="rounded-md overflow-hidden bg-[#3d4a5c]"
+                  className="rounded-md overflow-hidden"
                   style={{ marginBottom: "16px" }}
                 >
                   <div className="flex flex-row">
                     {headers.map((header) => (
                       <div
                         key={header}
-                        className="flex-1 px-5 py-2 text-left font-extraligh"
+                        className="flex-1 px-5 py-2 bg-[#283342] items-center flex"
                       >
-                        {header.replace(/_/g, " ")}
+                        {row[header]}
                       </div>
                     ))}
                   </div>
                 </div>
               </td>
             </tr>
-          </thead>
-          <tbody>
-            {preparedData.map((row, index) => (
-              <tr key={index}>
-                <td colSpan={headers.length}>
-                  <div
-                    className="rounded-md overflow-hidden"
-                    style={{ marginBottom: "16px" }}
-                  >
-                    <div className="flex flex-row">
-                      {headers.map((header) => (
-                        <div
-                          key={header}
-                          className="flex-1 px-5 py-2 bg-[#283342] items-center flex"
-                        >
-                          {row[header]}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

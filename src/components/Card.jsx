@@ -43,12 +43,7 @@ const Card = ({ title, data }) => {
             </span>
           </div>
           <span>
-            <img
-              src="./icons/link.svg"
-              alt=""
-              width={20}
-              className="cursor-pointer"
-            />
+            <img src="./icons/link.svg" alt="" width={20} />
           </span>
         </div>
 
